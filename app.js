@@ -9,12 +9,13 @@ searchBtn.addEventListener('click', function () {
     mealContainer.innerHTML = '';
     if (inputMeal === '') {
         warning.style.display = 'block';
-    } else {
+    } 
+    else {
         getMeal(inputMeal);
         warning.style.display = 'none';
     }
 });
-// multiple api calling to show meal 
+// api calling to show meal 
 const displayDetails = name => {
     const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${name}`;
     fetch(url)
@@ -24,7 +25,7 @@ const displayDetails = name => {
             console.log(data.meals[0]);
         });
 };
-// Showing meal ingredients
+// Showing meal ingredients and image
 const renderMealInfo = meal => {
     const mealDetailsDiv = document.getElementById('mealsDetails');
 
@@ -33,7 +34,7 @@ const renderMealInfo = meal => {
     <h4>${meal.strMeal}</h4>
     
     <h5>Ingredients</h5>
-    <ul">
+    <ul>
         <li>${meal.strMeasure1}, ${meal.strIngredient1}</li>
         <li>${meal.strMeasure2}, ${meal.strIngredient2}</li>
         <li>${meal.strMeasure3}, ${meal.strIngredient3}</li>
